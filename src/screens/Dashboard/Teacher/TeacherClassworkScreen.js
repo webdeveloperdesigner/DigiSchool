@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function TeacherAttendanceScreen() {
+export default function TeacherClassworkScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>📊 Teacher Attendance Screen</Text>
+      <Text style={styles.text}>📚 Teacher Classwork</Text>
     </View>
   );
 }
