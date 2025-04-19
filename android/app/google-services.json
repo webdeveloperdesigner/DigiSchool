@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "637692250788",
+    "firebase_url": "https://csed-2376e-default-rtdb.firebaseio.com",
+    "project_id": "csed-2376e",
+    "storage_bucket": "csed-2376e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637692250788:android:827edacb21dd834b5bf431",
+        "android_client_info": {
+          "package_name": "com.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637692250788-anvpd265orvt07f305uac6ue9gi68um4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSW5oNMHU6DDV02SMIZ6j-0WxI3TdTUNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637692250788-anvpd265orvt07f305uac6ue9gi68um4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

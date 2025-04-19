@@ -1,97 +1,141 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# DigiSchool - School Management System
 
-# Getting Started
+This is a **React Native** project developed as a college project by a group of three members:  
+- **Vivek**  
+- **Deepanshu Baghel**  
+- **Satya Prakesh**
+
+The project, named **DigiSchool**, is a **School Management System** that includes features such as:  
+- Student attendance tracking  
+- Scheduling tests  
+- Managing school events  
+- And many more functionalities!
+
+---
+
+## Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
+### Installation
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/webdeveloperdesigner/DigiSchool.git
+   cd DigiSchool
+   ```
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-```sh
-# Using npm
-npm start
+3. For iOS, install CocoaPods dependencies (only for macOS):
+   ```sh
+   bundle install
+   bundle exec pod install
+   ```
 
-# OR using Yarn
-yarn start
-```
+---
 
-## Step 2: Build and run your app
+### Starting the Project
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+1. Start the Metro dev server:
+   ```sh
+   npm start
+   ```
 
-### Android
+2. Build and run the app:
 
-```sh
-# Using npm
-npm run android
+   #### Android
+   ```sh
+   npm run android
+   ```
 
-# OR using Yarn
-yarn android
-```
+   #### iOS
+   ```sh
+   npm run ios
+   ```
 
-### iOS
+   If everything is set up correctly, you should see the app running in the Android Emulator, iOS Simulator, or your connected device.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+---
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## Features
 
-```sh
-bundle install
-```
+- **Student Attendance**: Track and manage student attendance records.  
+- **Test Scheduling**: Schedule and manage tests for students.  
+- **Event Management**: Organize and manage school events.  
+- **User-Friendly Interface**: Easy-to-use interface for teachers and administrators.  
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
-```
+## Version
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+- **Current Version**: DS V0.0.3
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
-```
+### 📊 Version Status Table
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+| #   | Version       | GitHub Code       | Live Website       | Key Changes                                                                 |
+|-----|---------------|-------------------|--------------------|------------------------------------------------------------------------------|
+| 1   | DS V0.0.3     | 🔄 Coming Soon    | 🔄 Coming Soon     | New interface for each role after login                                     |
+| 2   | DS V0.0.2     | ✅ Updated        | 🔄 Coming Soon     | Added Home Screen, Role Interface (Admin, Student, Teacher), and Login Page |
+| 3   | DS V0.0.1     | ✅ Updated        | 🔄 Coming Soon     | Initial release with core features                                          |
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+---
 
-## Step 3: Modify your app
+## Screenshots
 
-Now that you have successfully run the app, let's make changes!
+### Home Screen
+![Home Screen](./assets/Home%20Screen.jpg)  
+*Home Screen of the DigiSchool app.*
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Role Interface
+![Role Screen](./assets/Role.jpg)  
+*Role Section Screen of the DigiSchool app, showing interfaces for Admin, Student, and Teacher.*
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Login Page
+![Login Screen](./assets/Login%20Screen.jpg)  
+*Different Login page for each role to accessing the DigiSchool app.*
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Attendance Feature
+![Attendance Feature](path/to/attendance-feature.png)  
+*Attendance tracking feature 🔄 Coming Soon.*
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+## Modify the App
 
-### Now what?
+Once the app is running, you can modify it by editing `App.tsx`. Changes will automatically reflect in the app, thanks to [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+To forcefully reload the app:  
+- **Android**: Press <kbd>R</kbd> twice or select **"Reload"** from the **Dev Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> on Windows/Linux or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> on macOS).  
+- **iOS**: Press <kbd>R</kbd> in the iOS Simulator.
 
-# Troubleshooting
+---
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Troubleshooting
 
-# Learn More
+If you encounter any issues, refer to the [Troubleshooting Guide](https://reactnative.dev/docs/troubleshooting).
 
-To learn more about React Native, take a look at the following resources:
+---
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Learn More
+
+To learn more about React Native, check out the following resources:
+
+- [React Native Website](https://reactnative.dev)  
+- [Getting Started](https://reactnative.dev/docs/environment-setup)  
+- [Learn the Basics](https://reactnative.dev/docs/getting-started)  
+- [Blog](https://reactnative.dev/blog)  
+- [`@facebook/react-native`](https://github.com/facebook/react-native)  
+
+---
+
+## Contributors
+
+- **[Vivek](https://github.com/webdeveloperdesigner)**  
+- **[Deepanshu Baghel](https://github.com/Deepanshu-Baghel)**  
+- **[Satya Prakesh](https://github.com/satyaprakash148)**
