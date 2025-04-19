@@ -89,15 +89,15 @@ The project, named **DigiSchool**, is a **School Management System** that includ
 ## Screenshots
 
 ### Home Screen
-![Home Screen](./assets/Home%20Screen.jpg)  
+![Home Screen](./src/assets/Home%20Screen.jpg)  
 *Home Screen of the DigiSchool app.*
 
 ### Role Interface
-![Role Screen](./assets/Role.jpg)  
+![Role Screen](./src/assets/Role.jpg)  
 *Role Section Screen of the DigiSchool app, showing interfaces for Admin, Student, and Teacher.*
 
 ### Login Page
-![Login Screen](./assets/Login%20Screen.jpg)  
+![Login Screen](./src/assets/Login%20Screen.jpg)  
 *Different Login page for each role to accessing the DigiSchool app.*
 
 ### Attendance Feature
