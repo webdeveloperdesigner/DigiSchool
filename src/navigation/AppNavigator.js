@@ -21,6 +21,7 @@ import TeacherHomeScreen from '../screens/Dashboard/TeacherDashboard';
 
 // Teacher Features Screens
 import TeacherAttendanceScreen from '../screens/Attendance/AttendanceScreen';
+import MarkAttendanceScreen from '../screens/Attendance/MarkAttendance';
 import TeacherHomeworkScreen from '../screens/Dashboard/Teacher/TeacherHomeworkScreen';
 import TeacherClassworkScreen from '../screens/Dashboard/Teacher/TeacherClassworkScreen';
 import TeacherProgressScreen from '../screens/Dashboard/Teacher/TeacherProgressScreen';
@@ -28,6 +29,7 @@ import TeacherNotificationsScreen from '../screens/Dashboard/Teacher/TeacherNoti
 import TeacherStudentsScreen from '../screens/Dashboard/Teacher/TeacherStudentsScreen';
 import TeacherTimeTableScreen from '../screens/Dashboard/Teacher/TeacherTimeTableScreen';
 import TeacherQuizScreen from '../screens/Dashboard/Teacher/TeacherQuizScreen';
+import TeacherNoticesScreen from '../screens/Dashboard/Teacher/TeacherNoticesScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -59,6 +61,7 @@ export default function AppNavigator() {
 
   {/* Teacher Functionality Screens */}
   <Stack.Screen name="TeacherAttendance" component={TeacherAttendanceScreen} />
+  <Stack.Screen name="MarkAttendance" component={MarkAttendanceScreen} />
   <Stack.Screen name="TeacherHomework" component={TeacherHomeworkScreen} />
   <Stack.Screen name="TeacherClasswork" component={TeacherClassworkScreen} />
   <Stack.Screen name="TeacherProgress" component={TeacherProgressScreen} />
@@ -66,6 +69,9 @@ export default function AppNavigator() {
   <Stack.Screen name="TeacherStudents" component={TeacherStudentsScreen} />
   <Stack.Screen name="TeacherTimeTable" component={TeacherTimeTableScreen} />
   <Stack.Screen name="TeacherQuiz" component={TeacherQuizScreen} />
+  <Stack.Screen name="TeacherNotices" component={TeacherNoticesScreen} />
+
+
    
 </Stack.Navigator>
 

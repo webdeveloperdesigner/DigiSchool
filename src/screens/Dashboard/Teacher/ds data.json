@@ -1,0 +1,216 @@
+{
+    "users": {
+      "admins": {
+        "admin_1": {
+          "email": "admin1@school.com",
+          "password": "admin123",
+          "role": "Admin"
+        },
+        "admin_2": {
+          "email": "admin2@school.com",
+          "password": "admin456",
+          "role": "Admin"
+        }
+      },
+      "teachers": {
+        "teacher_1": {
+          "tid": "2025TID0001",
+          "name": "Mr. A",
+          "email": "teacher1@school.com",
+          "password": "teach123",
+          "assignedClass": "Class 1",
+          "role": "Teacher"
+        },
+        "teacher_2": {
+          "tid": "2025TID0002",
+          "name": "Mrs. B",
+          "email": "teacher2@school.com",
+          "password": "teach456",
+          "assignedClass": "Class 2",
+          "role": "Teacher"
+        },
+        "teacher_3": {
+          "tid": "2025TID0003",
+          "name": "Ms. C",
+          "email": "teacher3@school.com",
+          "password": "teach789",
+          "assignedClass": "Class 3",
+          "role": "Teacher"
+        },
+        "teacher_4": {
+          "tid": "2025TID0004",
+          "name": "Mr. D",
+          "email": "teacher4@school.com",
+          "password": "teach321",
+          "assignedClass": "Class 4",
+          "role": "Teacher"
+        },
+        "teacher_5": {
+          "tid": "2025TID0005",
+          "name": "Mrs. E",
+          "email": "teacher5@school.com",
+          "password": "teach654",
+          "assignedClass": "Class 5",
+          "role": "Teacher"
+        }
+      },
+      "students": {
+        "student_1": {
+          "name": "Ravi Kumar",
+          "class": "Class 1",
+          "email": "ravi@student.com",
+          "password": "student123",
+          "sid": "2025000001",
+          "role": "Student"
+        },
+        "student_2": {
+          "name": "Pooja Sharma",
+          "class": "Class 1",
+          "email": "pooja@student.com",
+          "password": "student456",
+          "sid": "2025000002",
+          "role": "Student"
+        },
+        "student_3": {
+          "name": "Amit Verma",
+          "class": "Class 2",
+          "email": "amit@student.com",
+          "password": "student789",
+          "sid": "2025000003",
+          "role": "Student"
+        },
+        "student_4": {
+          "name": "Sita Rai",
+          "class": "Class 2",
+          "email": "sita@student.com",
+          "password": "student101",
+          "sid": "2025000004",
+          "role": "Student"
+        },
+        "student_5": {
+          "name": "Manoj Das",
+          "class": "Class 3",
+          "email": "manoj@student.com",
+          "password": "student202",
+          "sid": "2025000005",
+          "role": "Student"
+        },
+        "student_6": {
+          "name": "Rina Mehta",
+          "class": "Class 4",
+          "email": "rina@student.com",
+          "password": "student303",
+          "sid": "2025000006",
+          "role": "Student"
+        },
+        "student_7": {
+          "name": "Arjun Sinha",
+          "class": "Class 4",
+          "email": "arjun@student.com",
+          "password": "student404",
+          "sid": "2025000007",
+          "role": "Student"
+        },
+        "student_8": {
+          "name": "Kiran Yadav",
+          "class": "Class 5",
+          "email": "kiran@student.com",
+          "password": "student505",
+          "sid": "2025000008",
+          "role": "Student"
+        }
+      }
+    },
+    "classes": {
+      "Class 1": {
+        "teacher": "teacher_1",
+        "students": ["student_1", "student_2"],
+        "subjects": ["Math", "English", "Science"]
+      },
+      "Class 2": {
+        "teacher": "teacher_2",
+        "students": ["student_3", "student_4"],
+        "subjects": ["History", "Geography", "Math"]
+      },
+      "Class 3": {
+        "teacher": "teacher_3",
+        "students": ["student_5"],
+        "subjects": ["Biology", "Physics", "Chemistry"]
+      },
+      "Class 4": {
+        "teacher": "teacher_4",
+        "students": ["student_6", "student_7"],
+        "subjects": ["Art", "Music", "Math"]
+      },
+      "Class 5": {
+        "teacher": "teacher_5",
+        "students": ["student_8"],
+        "subjects": ["Civics", "Math", "English"]
+      }
+    },
+    "timetable": {
+      "Class 1": {
+        "Monday": [
+          { "time": "09:00 AM", "subject": "Math", "teacher": "Mr. A" },
+          { "time": "10:00 AM", "subject": "English", "teacher": "Mr. A" }
+        ],
+        "Tuesday": [
+          { "time": "09:00 AM", "subject": "Science", "teacher": "Mr. A" }
+        ]
+      },
+      "Class 2": {
+        "Monday": [
+          { "time": "09:00 AM", "subject": "History", "teacher": "Mrs. B" },
+          { "time": "10:00 AM", "subject": "Geography", "teacher": "Mrs. B" }
+        ],
+        "Wednesday": [
+          { "time": "09:00 AM", "subject": "Math", "teacher": "Mrs. B" }
+        ]
+      },
+      "Class 3": {
+        "Monday": [
+          { "time": "09:00 AM", "subject": "Biology", "teacher": "Ms. C" }
+        ],
+        "Thursday": [
+          { "time": "10:00 AM", "subject": "Physics", "teacher": "Ms. C" }
+        ]
+      },
+      "Class 4": {
+        "Tuesday": [
+          { "time": "09:00 AM", "subject": "Art", "teacher": "Mr. D" },
+          { "time": "10:00 AM", "subject": "Music", "teacher": "Mr. D" }
+        ]
+      },
+      "Class 5": {
+        "Friday": [
+          { "time": "09:00 AM", "subject": "Civics", "teacher": "Mrs. E" },
+          { "time": "10:00 AM", "subject": "Math", "teacher": "Mrs. E" }
+        ]
+      }
+    },
+    "attendance": {
+      "2025-04-20": {
+        "Class 1": {
+          "student_1": "Present",
+          "student_2": "Absent"
+        },
+        "Class 2": {
+          "student_3": "Present",
+          "student_4": "Present"
+        }
+      }
+    },
+    "notices": {
+      "notice_1": {
+        "title": "Holiday on Friday",
+        "message": "School will be closed on Friday due to maintenance.",
+        "date": "2025-04-25"
+      },
+      "notice_2": {
+        "title": "Science Fair",
+        "message": "Annual Science Fair on May 5th. All students must participate.",
+        "date": "2025-05-05"
+      }
+    }
+  }
+  

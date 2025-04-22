@@ -18,27 +18,40 @@ export default function LoginScreen({ route, navigation }) {
         const data = snapshot.val();
         let found = false;
 
-        for (let id in data) {
-          const user = data[id];
-          if (
-            user.email === email &&
-            user.password === password &&
-            user.role === role
-          ) {
-            found = true;
+        // Check the correct users group based on the role (admins, teachers, students)
+        let userGroup = data[role.toLowerCase() + 's'];  // 'admins', 'teachers', or 'students'
 
-            // 🔔 Show toast notification
-            ToastAndroid.show(`Welcome ${role}`, ToastAndroid.SHORT);
+        if (userGroup) {
+          for (let id in userGroup) {
+            const user = userGroup[id];
+            if (
+              user.email === email &&
+              user.password === password &&
+              user.role === role
+            ) {
+              found = true;
 
-            // 🔀 Navigate to appropriate screen
-            if (role === 'Student') {
-              navigation.replace('StudentHome');
-            } else if (role === 'Teacher') {
-              navigation.replace('TeacherHome');
-            } else if (role === 'Admin') {
-              navigation.replace('AdminHome');
+              // 🔔 Show toast notification
+              ToastAndroid.show(`Welcome ${role}`, ToastAndroid.SHORT);
+
+              // 🔀 Navigate to appropriate screen
+              if (role === 'Student') {
+                navigation.replace('StudentHome');
+              } else if (role === 'Teacher') {
+                navigation.replace('TeacherHome', {
+                  teacher: {
+                    name: user.name,
+                    tid: user.tid,
+                    email: user.email,
+                    assignedClass: user.assignedClass
+                  }
+                });
+              }
+               else if (role === 'Admin') {
+                navigation.replace('AdminHome');
+              }
+              break;
             }
-            break;
           }
         }
 
@@ -80,7 +93,6 @@ const styles = StyleSheet.create({
     padding: 30,
     justifyContent: 'center',
     backgroundColor: '#f0f4f7', // Light, soft background
-    
   },
   title: {
     fontSize: 28,

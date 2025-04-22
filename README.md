@@ -72,7 +72,7 @@ The project, named **DigiSchool**, is a **School Management System** that includ
 
 ## Version
 
-- **Current Version**: DS V0.0.3
+- **Current Version**: DS V0.0.4
 
 ---
 
@@ -80,9 +80,10 @@ The project, named **DigiSchool**, is a **School Management System** that includ
 
 | #   | Version       | GitHub Code       | Live Website       | Key Changes                                                                 |
 |-----|---------------|-------------------|--------------------|------------------------------------------------------------------------------|
-| 1   | DS V0.0.3     | ✅ Updated        | 🔄 Coming Soon     | New interface for each role after login, including a Teacher's Dashboard    |
-| 2   | DS V0.0.2     | ✅ Updated        | 🔄 Coming Soon     | Added Home Screen, Role Interface (Admin, Student, Teacher), and Login Page |
-| 3   | DS V0.0.1     | ✅ Updated        | 🔄 Coming Soon     | Initial release with core features                                          |
+| 1   | DS V0.0.4     | 🔄 Coming Soon    | 🔄 Coming Soon     | Teacher's Dashboard with working Attendance Notice                          |
+| 2   | DS V0.0.3     | ✅ Updated        | 🔄 Coming Soon     | New interface for each role after login, including a Teacher's Dashboard    |
+| 3   | DS V0.0.2     | ✅ Updated        | 🔄 Coming Soon     | Added Home Screen, Role Interface (Admin, Student, Teacher), and Login Page |
+| 4   | DS V0.0.1     | ✅ Updated        | 🔄 Coming Soon     | Initial release with core features                                          |
 
 ---
 
