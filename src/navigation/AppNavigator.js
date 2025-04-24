@@ -13,7 +13,7 @@ import TeacherHomeScreen from '../screens/Dashboard/TeacherDashboard';
 // import TimeTableScreen from '../screens';
 // import AttendanceScreen from '../FunctionsScreen/AttendanceScreen';
 // import NotificationsScreen from '../FunctionsScreen/NotificationsScreen';
-// import HomeworkScreen from '../FunctionsScreen/HomeworkScreen';
+import HomeworkScreen from '../screens/Dashboard/Students/StudentHomeworkScreen';
 // import FeesScreen from '../FunctionsScreen/FeesScreen';
 // import ProgressScreen from '../FunctionsScreen/ProgressScreen';
 // import QuizScreen from '../FunctionsScreen/QuizScreen';
@@ -48,16 +48,16 @@ export default function AppNavigator() {
   <Stack.Screen name="AdminHome" component={AdminHomeScreen} />
 
   {/* Student Functionality Screens */}
-  {/* Uncomment and add as needed
-  <Stack.Screen name="TimeTable" component={TimeTableScreen} />
+  
+  {/* <Stack.Screen name="TimeTable" component={TimeTableScreen} />
   <Stack.Screen name="Attendance" component={AttendanceScreen} />
-  <Stack.Screen name="Notifications" component={NotificationsScreen} />
-  <Stack.Screen name="Homework" component={HomeworkScreen} />
-  <Stack.Screen name="Fees" component={FeesScreen} />
+  <Stack.Screen name="Notifications" component={NotificationsScreen} /> */}
+  <Stack.Screen name="Homework" component={StudentHomeScreen} />
+  {/* <Stack.Screen name="Fees" component={FeesScreen} />
   <Stack.Screen name="Progress" component={ProgressScreen} />
   <Stack.Screen name="Quiz" component={QuizScreen} />
-  <Stack.Screen name="Teachers" component={TeachersScreen} />
-  */}
+  <Stack.Screen name="Teachers" component={TeachersScreen} /> */}
+ 
 
   {/* Teacher Functionality Screens */}
   <Stack.Screen name="TeacherAttendance" component={TeacherAttendanceScreen} />

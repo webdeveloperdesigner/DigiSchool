@@ -211,6 +211,27 @@
         "message": "Annual Science Fair on May 5th. All students must participate.",
         "date": "2025-05-05"
       }
+    },
+
+    "studentProgress": {
+  "student_1": {
+    "name": "John Doe",
+    "class": "Class 1",
+    "subjects": {
+      "Math": "A",
+      "Science": "B+"
     }
+  },
+  "student_2": {
+    "name": "Jane Smith",
+    "class": "Class 1",
+    "subjects": {
+      "Math": "B",
+      "Science": "A"
+    }
+  }
+}
+
+    
   }
   

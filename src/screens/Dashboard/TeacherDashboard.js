@@ -45,9 +45,21 @@ export default function TeacherHomeScreen() {
           </TouchableOpacity>
 
 
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherAttendance')}>
+          {/* <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherAttendance')}>
             <Text style={styles.cardText}>📊 Attendance</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+
+<TouchableOpacity
+  style={styles.card}
+  onPress={() =>
+    navigation.navigate('TeacherAttendance', {
+      teacherId: teacher?.tid,
+    })
+  }
+>
+  <Text style={styles.cardText}>📊 Attendance</Text>
+</TouchableOpacity>
+
 
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherClasswork')}>
             <Text style={styles.cardText}>📚 Classwork</Text>
@@ -69,7 +81,7 @@ export default function TeacherHomeScreen() {
             <Text style={styles.cardText}>📈 Student Progress</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherStudents')}>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherStudents', { tid: teacherData.tid })}>
             <Text style={styles.cardText}>👨‍🎓 My Students</Text>
           </TouchableOpacity>
         </View>
