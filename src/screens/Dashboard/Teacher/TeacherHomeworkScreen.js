@@ -1,115 +1,223 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, FlatList } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  View, Text, TextInput, Button, StyleSheet,
+  Alert, FlatList, TouchableOpacity
+} from 'react-native';
 import { database } from '../../firebase';
-import { ref, set, onValue, push } from 'firebase/database';
+import { ref, push, onValue, remove, update } from 'firebase/database';
 
-export default function TeacherHomeworkScreen() {
-  const [className, setClassName] = useState('');
-  const [date, setDate] = useState('');
+const TeacherHomeworkScreen = ({ route }) => {
+  const teacher = route.params?.teacher;
+
+  const [subject, setSubject] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [subject, setSubject] = useState('');
-  const [uploadedHomework, setUploadedHomework] = useState([]);
+  const [endDate, setEndDate] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [homeworks, setHomeworks] = useState([]);
+  const [editingId, setEditingId] = useState(null);
 
-  // Replace these with the actual logged-in teacher's info
-  const teacherId = 'TID2025XYZ';
-  const teacherName = 'Mr. Vivek';
+  const today = new Date().toISOString().split('T')[0];
 
-  // Upload homework
-  const uploadHomework = () => {
-    if (!className || !date || !title || !description || !subject) {
+  const fetchHomeworks = () => {
+    const classRef = ref(database, `homework/${teacher?.assignedClass}/${today}`);
+    onValue(classRef, (snapshot) => {
+      const data = snapshot.val();
+      const list = [];
+      for (const key in data) {
+        if (data[key].uploadedBy === teacher?.tid) {
+          list.push({ id: key, ...data[key] });
+        }
+      }
+      setHomeworks(list.reverse());
+    });
+  };
+
+  useEffect(() => {
+    fetchHomeworks();
+  }, []);
+
+  const resetForm = () => {
+    setSubject('');
+    setTitle('');
+    setDescription('');
+    setEndDate('');
+    setEditingId(null);
+  };
+
+  const handleUploadHomework = async () => {
+    if (!subject || !title || !description || !endDate) {
       Alert.alert('Please fill all fields');
       return;
     }
 
-    const homeworkRef = ref(database, `homework/${className}/${date}`);
-    set(homeworkRef, {
+    setLoading(true);
+    const data = {
       title,
       description,
       subject,
-      uploadedById: teacherId,
-      uploadedByName: teacherName,
-    })
-      .then(() => Alert.alert('Homework uploaded successfully!'))
-      .catch((error) => Alert.alert('Upload failed', error.message));
+      endDate,
+      uploadedBy: teacher?.tid,
+      uploadedByName: teacher?.name,
+      homeworkId: `${teacher?.tid}-${today}-${teacher?.assignedClass}-${Date.now()}`
+    };
+
+    try {
+      const classRef = ref(database, `homework/${teacher?.assignedClass}/${today}`);
+      if (editingId) {
+        await update(ref(database, `homework/${teacher?.assignedClass}/${today}/${editingId}`), data);
+        Alert.alert('Homework updated successfully!');
+      } else {
+        await push(classRef, data);
+        Alert.alert('Homework uploaded successfully!');
+      }
+      resetForm();
+    } catch (error) {
+      console.error(error);
+      Alert.alert('Error uploading homework');
+    }
+
+    setLoading(false);
   };
 
-  // Fetch all homework uploaded by this teacher
-  useEffect(() => {
-    const allHomeworkRef = ref(database, 'homework');
+  const handleEdit = (item) => {
+    setSubject(item.subject);
+    setTitle(item.title);
+    setDescription(item.description);
+    setEndDate(item.endDate);
+    setEditingId(item.id);
+  };
 
-    const unsubscribe = onValue(allHomeworkRef, (snapshot) => {
-      const data = snapshot.val();
-      const teacherHomework = [];
-
-      if (data) {
-        Object.entries(data).forEach(([classKey, classData]) => {
-          Object.entries(classData).forEach(([dateKey, hw]) => {
-            if (hw.uploadedById === teacherId) {
-              teacherHomework.push({
-                id: `${classKey}-${dateKey}`,
-                className: classKey,
-                date: dateKey,
-                ...hw,
-              });
-            }
-          });
-        });
+  const handleDelete = async (id) => {
+    Alert.alert('Confirm', 'Are you sure you want to delete this homework?', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete', style: 'destructive', onPress: async () => {
+          await remove(ref(database, `homework/${teacher?.assignedClass}/${today}/${id}`));
+          Alert.alert('Homework deleted');
+        }
       }
-
-      setUploadedHomework(teacherHomework.reverse());
-    });
-
-    return () => unsubscribe();
-  }, []);
+    ]);
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>📘 Upload Homework</Text>
+      <Text style={styles.heading}>Upload Homework</Text>
 
-      <TextInput placeholder="Class Name" style={styles.input} onChangeText={setClassName} />
-      <TextInput placeholder="Date (YYYY-MM-DD)" style={styles.input} onChangeText={setDate} />
-      <TextInput placeholder="Title" style={styles.input} onChangeText={setTitle} />
-      <TextInput placeholder="Description" style={styles.input} onChangeText={setDescription} />
-      <TextInput placeholder="Subject" style={styles.input} onChangeText={setSubject} />
-      <Button title="Upload Homework" onPress={uploadHomework} />
+      <Text style={styles.label}>Class: {teacher?.assignedClass}</Text>
+      <Text style={styles.label}>Teacher: {teacher?.name}</Text>
 
-      <Text style={styles.subHeading}>🧾 My Uploaded Homework</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Subject"
+        value={subject}
+        onChangeText={setSubject}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Title"
+        value={title}
+        onChangeText={setTitle}
+      />
+      <TextInput
+        style={[styles.input, { height: 80 }]}
+        placeholder="Description"
+        multiline
+        value={description}
+        onChangeText={setDescription}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="End Date (YYYY-MM-DD)"
+        value={endDate}
+        onChangeText={setEndDate}
+      />
+
+      <Button
+        title={editingId ? 'Update Homework' : loading ? 'Uploading...' : 'Upload Homework'}
+        onPress={handleUploadHomework}
+        disabled={loading}
+      />
+
+      <Text style={[styles.heading, { marginTop: 30 }]}>My Uploaded Homeworks</Text>
+
       <FlatList
-        data={uploadedHomework}
+        data={homeworks}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>{item.title}</Text>
-            <Text>📚 {item.subject}</Text>
-            <Text>📝 {item.description}</Text>
-            <Text>🏫 Class: {item.className}</Text>
-            <Text>📅 Date: {item.date}</Text>
-            <Text style={styles.by}>🧑‍🏫 {item.uploadedByName} ({item.uploadedById})</Text>
+          <View style={styles.homeworkItem}>
+            <Text style={styles.title}>{item.title} ({item.subject})</Text>
+            <Text>{item.description}</Text>
+            <Text style={styles.meta}>Due: {item.endDate}</Text>
+
+            <View style={styles.buttons}>
+              <TouchableOpacity onPress={() => handleEdit(item)} style={styles.editBtn}>
+                <Text>Edit</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => handleDelete(item.id)} style={styles.deleteBtn}>
+                <Text style={{ color: 'white' }}>Delete</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#fff' },
-  heading: { fontSize: 24, fontWeight: 'bold', marginBottom: 20, color: '#1e88e5' },
-  subHeading: { fontSize: 20, marginVertical: 15, fontWeight: 'bold', color: '#4caf50' },
+  container: {
+    padding: 20,
+    flexGrow: 1,
+    backgroundColor: '#fff',
+  },
+  heading: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 6,
+  },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 10,
+    borderColor: '#aaa',
+    borderRadius: 8,
     padding: 10,
-    marginBottom: 10,
+    marginBottom: 15,
+    fontSize: 16,
   },
-  card: {
-    backgroundColor: '#e3f2fd',
-    padding: 15,
+  homeworkItem: {
+    borderWidth: 1,
+    borderColor: '#ddd',
     borderRadius: 10,
-    marginBottom: 10,
+    padding: 12,
+    marginBottom: 12,
   },
-  cardTitle: { fontSize: 18, fontWeight: 'bold' },
-  by: { marginTop: 5, fontStyle: 'italic', color: '#555' },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 17,
+  },
+  meta: {
+    color: '#555',
+    marginTop: 4,
+  },
+  buttons: {
+    flexDirection: 'row',
+    marginTop: 10,
+  },
+  editBtn: {
+    marginRight: 10,
+    padding: 6,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 5,
+  },
+  deleteBtn: {
+    backgroundColor: '#e53935',
+    padding: 6,
+    borderRadius: 5,
+  },
 });
+
+export default TeacherHomeworkScreen;

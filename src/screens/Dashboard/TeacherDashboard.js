@@ -65,7 +65,7 @@ export default function TeacherHomeScreen() {
             <Text style={styles.cardText}>📚 Classwork</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherHomework')}>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherHomework', { teacher })}>
             <Text style={styles.cardText}>📝 Homework</Text>
           </TouchableOpacity>
 
@@ -80,6 +80,8 @@ export default function TeacherHomeScreen() {
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherProgress')}>
             <Text style={styles.cardText}>📈 Student Progress</Text>
           </TouchableOpacity>
+
+
 
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TeacherStudents', { tid: teacherData.tid })}>
             <Text style={styles.cardText}>👨‍🎓 My Students</Text>

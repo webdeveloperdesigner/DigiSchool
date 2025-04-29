@@ -1,17 +1,32 @@
-// StudentHomeScreen.js
-
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 export default function StudentHomeScreen() {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { student } = route.params || {};
+
+  const handleLogout = () => {
+    navigation.replace('Welcome');
+  };
 
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>Student Dashboard</Text>
+        {student && (
+          <View style={styles.profileBox}>
+            <Text style={styles.profileText}>👤 {student.name}</Text>
+            <Text style={styles.profileText}>🆔 {student.sid}</Text>
+            <Text style={styles.profileText}>📧 {student.email}</Text>
+            <Text style={styles.profileText}>🏫 {student.class}</Text>
+          </View>
+        )}
+        <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
+          <Text style={styles.logoutText}>🚪 Logout</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Grid Menu */}
@@ -20,31 +35,24 @@ export default function StudentHomeScreen() {
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentTimeTable')}>
             <Text style={styles.cardText}>📅 Time Table</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentAttendance')}>
             <Text style={styles.cardText}>📊 Attendance</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentClasswork')}>
             <Text style={styles.cardText}>📚 Classwork</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentHomework')}>
             <Text style={styles.cardText}>📝 Homework</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentNotices')}>
             <Text style={styles.cardText}>📢 Notices</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentQuiz')}>
             <Text style={styles.cardText}>🧪 Quizzes</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentResults')}>
             <Text style={styles.cardText}>📈 My Results</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentProfile')}>
             <Text style={styles.cardText}>🧍 Profile</Text>
           </TouchableOpacity>
@@ -77,6 +85,31 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#2c3e50',
     letterSpacing: 1,
+    marginBottom: 10,
+  },
+  profileBox: {
+    marginTop: 10,
+    backgroundColor: '#f0f8ff',
+    padding: 10,
+    borderRadius: 12,
+    elevation: 2,
+  },
+  profileText: {
+    fontSize: 15,
+    color: '#2c3e50',
+    marginVertical: 2,
+  },
+  logoutBtn: {
+    marginTop: 10,
+    alignSelf: 'flex-start',
+    backgroundColor: '#e74c3c',
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 10,
+  },
+  logoutText: {
+    color: '#fff',
+    fontWeight: '600',
   },
   content: {
     padding: 20,
