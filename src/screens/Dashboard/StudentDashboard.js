@@ -35,7 +35,9 @@ export default function StudentHomeScreen() {
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentTimeTable')}>
             <Text style={styles.cardText}>📅 Time Table</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentAttendance')}>
+          {/* <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("StudentAttendance", { student })}> */}
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentAttendance', { studentId: student.sid, student })}>
+
             <Text style={styles.cardText}>📊 Attendance</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentClasswork')}>
@@ -53,9 +55,10 @@ export default function StudentHomeScreen() {
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentResults')}>
             <Text style={styles.cardText}>📈 My Results</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentProfile')}>
-            <Text style={styles.cardText}>🧍 Profile</Text>
-          </TouchableOpacity>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('StudentProfile', { student })}>
+  <Text style={styles.cardText}>🧍 Profile</Text>
+</TouchableOpacity>
+
         </View>
 
         <View style={styles.footer}>

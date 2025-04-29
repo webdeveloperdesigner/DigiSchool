@@ -57,7 +57,13 @@ export default function LoginScreen({ route, navigation }) {
                   }
                 });
               } else if (role === 'Admin') {
-                navigation.replace('AdminHome');
+                navigation.replace('AdminHome', {
+                  admin: {
+                    name: user.name,
+                    aid: user.aid,
+                    email: user.email
+                  }
+                });
               }
 
               break;

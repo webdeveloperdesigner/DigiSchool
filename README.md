@@ -80,11 +80,12 @@ The project, named **DigiSchool**, is a **School Management System** that includ
 
 | #   | Version       | GitHub Code       | Live Website       | Key Changes                                                                 |
 |-----|---------------|-------------------|--------------------|------------------------------------------------------------------------------|
-| 1   | DS V0.0.5     | ✅ Updated        | 🔄 Coming Soon     | Complete Teacher's Portal/Dashboard with all features                       |
-| 2   | DS V0.0.4     | ✅ Updated        | 🔄 Coming Soon     | Teacher's Dashboard with working Attendance Notice                          |
-| 3   | DS V0.0.3     | ✅ Updated        | 🔄 Coming Soon     | New interface for each role after login, including a Teacher's Dashboard    |
-| 4   | DS V0.0.2     | ✅ Updated        | 🔄 Coming Soon     | Added Home Screen, Role Interface (Admin, Student, Teacher), and Login Page |
-| 5   | DS V0.0.1     | ✅ Updated        | 🔄 Coming Soon     | Initial release with core features                                          |
+| 1   | DS V0.0.6     | 🔄 Coming Soon    | 🔄 Coming Soon     | Student Display Profile, Attendance, and Homework                           |
+| 2   | DS V0.0.5     | ✅ Updated        | 🔄 Coming Soon     | Complete Teacher's Portal/Dashboard with all features                       |
+| 3   | DS V0.0.4     | ✅ Updated        | 🔄 Coming Soon     | Teacher's Dashboard with working Attendance Notice                          |
+| 4   | DS V0.0.3     | ✅ Updated        | 🔄 Coming Soon     | New interface for each role after login, including a Teacher's Dashboard    |
+| 5   | DS V0.0.2     | ✅ Updated        | 🔄 Coming Soon     | Added Home Screen, Role Interface (Admin, Student, Teacher), and Login Page |
+| 6   | DS V0.0.1     | ✅ Updated        | 🔄 Coming Soon     | Initial release with core features                                          |
 
 ---
 
@@ -103,8 +104,8 @@ The project, named **DigiSchool**, is a **School Management System** that includ
 *Different Login page for each role to accessing the DigiSchool app.*
 
 ### Attendance Feature
-![Attendance Feature](path/to/attendance-feature.png)  
-*Attendance tracking feature 🔄 Coming Soon.*
+![Attendance Feature](./src/assets/Attendence.jpg)  
+*Attendance tracking feature release of Teachers Dashboard.*
 
 ---
 

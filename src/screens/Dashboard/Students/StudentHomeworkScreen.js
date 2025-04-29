@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 10,
   },
-  title: { fontSize: 18, fontWeight: 'bold' },
+  title: { fontSize: 18, fontWeight: 'bold', color: '#2e7d32' },
   by: { fontStyle: 'italic', color: '#555' },
 });

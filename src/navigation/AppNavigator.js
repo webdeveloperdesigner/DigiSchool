@@ -9,11 +9,14 @@ import StudentHomeScreen from '../screens/Dashboard/StudentDashboard';
 import TeacherHomeScreen from '../screens/Dashboard/TeacherDashboard';
 
 
+
+
 // Student Features Screens
 // import TimeTableScreen from '../screens';
-// import AttendanceScreen from '../FunctionsScreen/AttendanceScreen';
+import StudentAttendanceScreen from '../screens/Dashboard/Students/StudentAttendanceScreen';
 // import NotificationsScreen from '../FunctionsScreen/NotificationsScreen';
 import HomeworkScreen from '../screens/Dashboard/Students/StudentHomeworkScreen';
+import ProfileScreen from '../screens/Dashboard/Students/StudentProfileScreen';
 // import FeesScreen from '../FunctionsScreen/FeesScreen';
 // import ProgressScreen from '../FunctionsScreen/ProgressScreen';
 // import QuizScreen from '../FunctionsScreen/QuizScreen';
@@ -30,6 +33,7 @@ import TeacherStudentsScreen from '../screens/Dashboard/Teacher/TeacherStudentsS
 import TeacherTimeTableScreen from '../screens/Dashboard/Teacher/TeacherTimeTableScreen';
 import TeacherQuizScreen from '../screens/Dashboard/Teacher/TeacherQuizScreen';
 import TeacherNoticesScreen from '../screens/Dashboard/Teacher/TeacherNoticesScreen';
+import { profile } from 'console';
 
 
 const Stack = createNativeStackNavigator();
@@ -49,10 +53,13 @@ export default function AppNavigator() {
 
   {/* Student Functionality Screens */}
   
-  {/* <Stack.Screen name="TimeTable" component={TimeTableScreen} />
-  <Stack.Screen name="Attendance" component={AttendanceScreen} />
-  <Stack.Screen name="Notifications" component={NotificationsScreen} /> */}
-  <Stack.Screen name="Homework" component={StudentHomeScreen} />
+   {/* <Stack.Screen name="TimeTable" component={TimeTableScreen} /> */}
+   <Stack.Screen name="StudentAttendance" component={StudentAttendanceScreen} />
+
+  {/* <Stack.Screen name="Notifications" component={NotificationsScreen} />  */}
+  <Stack.Screen name="Home" component={StudentHomeScreen} />
+  <Stack.Screen name="StudentHomework" component={HomeworkScreen} />
+  <Stack.Screen name="StudentProfile" component={ProfileScreen} />
   {/* <Stack.Screen name="Fees" component={FeesScreen} />
   <Stack.Screen name="Progress" component={ProgressScreen} />
   <Stack.Screen name="Quiz" component={QuizScreen} />
